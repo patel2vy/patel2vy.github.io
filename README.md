@@ -161,3 +161,51 @@ Source code for Haacker Api:
         </script>
  ```
 ![5 Hacker news articles](images/Hackernews.png)
+
+### Joke API
+
+Incorporated the jokeAPI to retrieve a fresh joke every 60 seconds and post it online.
+
+Source code for Joke API:
+
+```JS
+function fetchJoke() {
+          $.get("https://v2.jokeapi.dev/joke/Any?type=single", function (result) {
+            console.log("From jokeAPI: " + JSON.stringify(result));
+            if (result && result.joke) {
+              $("#joke").text("Here's a joke for you: " + result.joke);
+            } else {
+              $("#joke").text("Could not retrieve a joke at the moment.");
+            }
+          });
+        }
+
+fetchJoke();
+setInterval(fetchJoke, 60000);
+```
+
+### XKCD Comic API
+
+Incorporated the XKCD Comic API using the api `https://xkcd.com/info.0.json`
+
+Source code for Joke API:
+
+```JS
+function fetchComic() {
+                const proxyUrl = "https://api.allorigins.win/raw?url=";
+                const apiUrl = "https://xkcd.com/info.0.json";
+
+                fetch(proxyUrl + apiUrl)
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById("comic-title").textContent = "Title: " + data.title;
+                        document.getElementById("comic-img").src = data.img;
+                        document.getElementById("comic-alt").textContent = data.alt;
+                    })
+                    .catch(error => {
+                        console.error("Error fetching XKCD comic:", error);
+                    });
+            }
+            fetchComic();
+```
+![Joke API and XKCD Comic API](images/jokexkcd.png)
