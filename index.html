@@ -6,8 +6,7 @@
     <title>Varun Resume</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -63,52 +62,6 @@
 	}
        
     </style>
- <script>
-$(document).ready(function () {
-  // Fetch data from Weatherbit API
-  $.ajax({
-    url: "https://api.weatherbit.io/v2.0/current",
-    data: {
-      city: "cincinnati",
-      key: "9dfcc371ce9e44f38aa65500af54f3c0"
-    },
-    success: function(data) {
-      // Extract relevant weather information
-      var temperature = data.data[0].temp;
-      var description = data.data[0].weather.description;
-      var iconCode = data.data[0].weather.icon;
-
-      // Update weather information
-      $("#weather-info").text("Current Temperature: " + temperature + "°C, Weather: " + description);
-
-      // Update weather icon
-      $("#weather-icon").attr("src", "https://www.weatherbit.io/static/img/icons/" + iconCode + ".png");
-      $("#weather-icon").attr("alt", description);
-    },
-    error: function(xhr, status, error) {
-      console.error("Error fetching weather:", error);
-      $("#weather-info").text("Error fetching weather");
-    }
-  });
-});
-</script>
-
-  <style>
-    #response {
-      background-color: #ff9800;
-    }
-
-    #weather-box {
-      background-color: #04181c;
-      /* Set background color */
-      padding: 10px;
-      /* Add padding */
-      border-radius: 5px;
-      /* Add rounded corners */
-      margin-bottom: 20px;
-      /* Add margin to separate from other content */
-    }
-  </style>
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <script>
@@ -231,11 +184,12 @@ $(document).ready(function () {
           </ul>
         </div>
      </div>
- 	<div>
-        <!-- Display weather information -->
-<div id="weather-box">
-  <img id="weather-icon" src="" alt="Weather Icon">
-  <div id="weather-info"></div>
+ 	<div class="weather-container">
+    <div id="weather-box">
+        <img id="weather-icon" src="" alt="Weather Icon">
+        <div id="weather-temperature">Current Temperature: <span id="temperature"></span></div>
+        <div id="weather-description">Weather: <span id="description"></span></div>
+    </div>
 </div>
 
       </div>
@@ -432,8 +386,8 @@ $(document).ready(function () {
             }
           });
         </script>
-		
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="scripts.js"></script>		
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
