@@ -71,3 +71,50 @@ div style="text-align:left;">
 
 ![Flag Counter](images/Flagcounter.png)
 
+## Technical requirements
+
+### show/hide your email; A digital clock; An analog clock:
+
+Similar to lab 2, we implemented an analogue and digital clock that displays the current time using JavaScript. We also included code that allows us to reveal or conceal the email address based on user input.
+
+Source Code for show/hide your email:
+
+```JS
+function showhideEmail() {
+      if (shown) {
+        document.getElementById('email').innerHTML = "Click here to show my email";
+        shown = false;
+      }
+      else {
+        var myemail = "<a href='mailto:sheelada" + "@" + "mail.uc.edu'>sheelada" + "@" + "mail.uc.edu</a>";
+        document.getElementById('email').innerHTML = myemail;
+        shown = true;
+```
+
+Source Code for digital clock:
+```JS
+function displayTime() {
+          document.getElementById('digital-clock').innerHTML = "current time:" + new Date();
+        }
+        setInterval(displayTime, 500);
+```
+
+Source Code for Analog clock:
+```JS
+var canvas = document.getElementById("analog-clock");
+        var ctx = canvas.getContext("2d");
+        var radius = canvas.height / 2;
+        ctx.translate(radius, radius);
+        radius = radius * 0.90
+        setInterval(drawClock, 1000);
+
+        function drawClock() {
+          drawFace(ctx, radius);
+          drawNumbers(ctx, radius);
+          drawTime(ctx, radius);
+        }
+```
+
+Screenshot Showing hide your email, Digital clock, Analog Clock:
+
+![Show/hide your email, Digital clock, Analog Clock,](images/sda.png)
