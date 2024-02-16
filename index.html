@@ -129,7 +129,48 @@
             </li>
           </ul>
         </div>
-		    </div>
+     </div>
+		    <div class="weather">
+<p>weather details</p>
+<div id="weather-info">
+<!-- Weather icon will be displayed here -->
+<img id="weather-icon" src="" alt="Weather Icon">
+<div id="weather-details"></div>
+</div>
+<script>
+	$(document).ready(function () {
+		var apiKey = '1ed5f6ac27804a8f9f43abe2bb2684a3'; // Replace 'YOUR_API_KEY' with your actual API key from Weatherbit
+ 
+// Make a GET request to Weatherbit API for current weather data
+		$.get("https://api.weatherbit.io/v2.0/current", {
+			key: apiKey,
+			city: 'Cincinnati' // Example city, you can change it to any city you want
+	})
+	.done(function (data) {
+// Check if the request was successful and data is available
+		if (data && data.data && data.data.length > 0) {
+		var weatherData = data.data[0];
+		var temperature = weatherData.temp;
+		var description = weatherData.weather.description;
+		var iconCode = weatherData.weather.icon;
+ 
+// Construct the URL for the weather icon
+		var iconUrl = "https://www.weatherbit.io/static/img/icons/" + iconCode + ".png";
+ 
+// Display weather information on the webpage
+		$("#weather-icon").attr("src", iconUrl);
+		$("#weather-details").html("<p>Temperature: " + temperature + "°C</p>" +
+"<p>Description: " + description + "</p>");
+} 	else {
+		$("#weather-info").html("<p>Unable to fetch weather data.</p>");
+}
+})
+	.fail(function () {
+		$("#weather-info").html("<p>Error occurred while fetching weather data.</p>");
+	});
+});
+</script>
+</div>
                 <hr class="my-4">
                 <div id="about" class="resume-section">
                     <h4 class="section_title">About Me</h5>
