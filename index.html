@@ -122,17 +122,14 @@
 		    </div>
 		    <div id="response"></div>
     <script>
-        $(document).ready(function () {
-            $.get("https://v2.jokeapi.dev/joke/Programming?type=single", function (result) {
-                console.log("From jokeAPI: " + JSON.stringify(result));
-                $("#response").html("A programming joke of the day: " + encodeInput(result.joke));
-            });
-        });
-
-        function encodeInput(input) {
-            // You can add your own encoding logic here if needed
-            return input;
-        }
+        function printResult(result){
+			$("#response").html("Response From Server: " + result);
+		}
+    $.get("https://v2.jokeapi.dev/joke/Programming?type=single",function(result){
+	    		console.log("From jokeAPI: + JSON.stringify(result)); 
+			$("#response").html("Programming joke of the day: " +result.joke);
+		});
+	    }
     </script>
         <div class="mt-3" id="app">
           <h3> Hacker News Trending Articles</h3>
