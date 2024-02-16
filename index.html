@@ -120,17 +120,18 @@
         <canvas id="analog-clock" width="150" height="150" style="background-color: #FFFFFF" class="a;"></canvas>
         <script src="https://waph-uc.github.io/clock.js"></script>
 		    </div>
+		    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
 		    <div>
         <div class="mt-3" id="app">
           <h3> Hacker News Trending Articles</h3>
           <ul>
             <li v-for="article in articles" :key="article.id">
-              <a :href="article.url" target="_blank"> </a>
-		    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+              <a :href="article.url" target="_blank">{{ article.title }}</a>
             </li>
           </ul>
         </div>
-	
+		    </div>
                 <hr class="my-4">
                 <div id="about" class="resume-section">
                     <h4 class="section_title">About Me</h5>
@@ -212,6 +213,7 @@
         </div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <script type="text/javascript">
     function displayTime(){
       document.getElementById('digital-clock').innerHTML = "Current time: " + new Date();
