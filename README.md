@@ -118,3 +118,46 @@ var canvas = document.getElementById("analog-clock");
 Screenshot Showing hide your email, Digital clock, Analog Clock:
 
 ![Show/hide your email, Digital clock, Analog Clock,](images/sda.png)
+
+### Two more Functionality of my choice
+
+I have used the `VUE.JS` Framework to integrate Hacker News Api. Five Hacker News Articles are shown using this API. 
+
+Source code for Haacker Api:
+```JS
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+```
+ ```JS
+<script>
+          new Vue({
+            el: '#app',
+            data: {
+              articles: []
+            },
+            mounted() {
+              this.fetchArticles();
+            },
+            methods: {
+              fetchArticles() {
+                fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
+                  .then(response => response.json())
+                  .then(ids => {
+                    // Take only the first 10 article IDs
+                    ids = ids.slice(0, 5);
+                    // Fetch details of each article
+                    Promise.all(ids.map(id =>
+                      fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
+                        .then(response => response.json())
+                    ))
+                      .then(articles => {
+                        // Update articles data
+                        this.articles = articles;
+                      });
+                  })
+                  .catch(error => console.error('Error fetching articles:', error));
+              }
+            }
+          });
+        </script>
+ ```
+![5 Hacker news articles](images/Hackernews.png)
