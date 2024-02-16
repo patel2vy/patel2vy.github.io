@@ -120,7 +120,20 @@
         <canvas id="analog-clock" width="150" height="150" style="background-color: #FFFFFF" class="a;"></canvas>
         <script src="https://waph-uc.github.io/clock.js"></script>
 		    </div>
-		    <div class="text-success" id="joke"></div>
+		    <div id="response"></div>
+    <script>
+        $(document).ready(function () {
+            $.get("https://v2.jokeapi.dev/joke/Programming?type=single", function (result) {
+                console.log("From jokeAPI: " + JSON.stringify(result));
+                $("#response").html("A programming joke of the day: " + encodeInput(result.joke));
+            });
+        });
+
+        function encodeInput(input) {
+            // You can add your own encoding logic here if needed
+            return input;
+        }
+    </script>
         <div class="mt-3" id="app">
           <h3> Hacker News Trending Articles</h3>
           <ul>
@@ -230,10 +243,6 @@
       drawNumbers(ctx, radius);
       drawTime(ctx, radius);
     }
-	$.get("https://v2.jokeapi.dev/joke/Programming?type=single",function(result){
-			$("#response").html("Programming joke of the day: " +result.joke);
-	    		$("#response").html("Programming joke of the day: " + encodeInput(result.joke));
-		});
 </script>
 		
 <script>
