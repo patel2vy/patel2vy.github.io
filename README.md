@@ -35,3 +35,15 @@ I have open-sourced a new repository called `patel2vy.github.io`. I used GitHub
 The link to access my website is: [https://patel2vy.github.io/index.html](https://patel2vy.github.io/index.html).
 
 ![Resume Website](images/resumepage.png)
+
+### "Web Application Programming and Hacking" course on waph.html file
+
+I made a stand-alone page on my repository called waph.html to introduce the "Web Application Programming and Hacking" course and the practical projects that go along with it. A summary of Lab0, Lab1, Lab2, Hackathon 1, and Individual Project 1 are included in this. 
+
+The link to access waph.html is: [https://patel2vy.github.io/waph.html](https://patel2vy.github.io/waph.html).
+
+This page URL is available via the personal website, as shown in the picture below.
+
+![waph.html page link on mywebsite](images/htmlink.png)
+
+![waph.html page](images/waphhtml.png)
