@@ -291,4 +291,5 @@ JavaScript cookies were used to remember the client's visit and provide customiz
     // Call the function when the page loads
     window.onload = displayWelcomeMessage;
 ```
+![firstvisit cookie](images/firstvisit.jpeg)
 ![Welcomeback revisit cookie](images/welcomeback.png)
