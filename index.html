@@ -120,6 +120,16 @@
         <canvas id="analog-clock" width="150" height="150" style="background-color: #FFFFFF" class="a;"></canvas>
         <script src="https://waph-uc.github.io/clock.js"></script>
 		    </div>
+		    <div class="text-success" id="joke"></div>
+        <div class="mt-3" id="app">
+          <h3> Hacker News Trending Articles</h3>
+          <ul>
+            <li v-for="article in articles" :key="article.id">
+              <a :href="article.url" target="_blank">{{ article.title }}</a>
+            </li>
+          </ul>
+        </div>
+	
                 <hr class="my-4">
                 <div id="about" class="resume-section">
                     <h4 class="section_title">About Me</h5>
@@ -220,6 +230,39 @@
       drawNumbers(ctx, radius);
       drawTime(ctx, radius);
     }</script>
+		
+<script>
+          new Vue({
+            el: '#app',
+            data: {
+              articles: []
+            },
+            mounted() {
+              this.fetchArticles();
+            },
+            methods: {
+              fetchArticles() {
+                fetch('https://hacker-news.firebaseio.com/v0/topstories.json')
+                  .then(response => response.json())
+                  .then(ids => {
+                    // Take only the first 10 article IDs
+                    ids = ids.slice(0, 5);
+                    // Fetch details of each article
+                    Promise.all(ids.map(id =>
+                      fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`)
+                        .then(response => response.json())
+                    ))
+                      .then(articles => {
+                        // Update articles data
+                        this.articles = articles;
+                      });
+                  })
+                  .catch(error => console.error('Error fetching articles:', error));
+              }
+            }
+          });
+        </script>
+		
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
