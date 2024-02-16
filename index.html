@@ -61,6 +61,24 @@
 	}
        
     </style>
+    <script>
+    $(document).ready(function () {
+      // Fetch data from Weatherbit API
+      $.getJSON("https://api.weatherbit.io/v2.0/current?city=cincinnati&key=08d6dd69bae245f081687c17710408a2", function (data) {
+        // Extract relevant weather information
+        var temperature = data.data[0].temp;
+        var description = data.data[0].weather.description;
+        var iconCode = data.data[0].weather.icon;
+
+        // Update weather information
+        $("#weather-info").text("Current Temperature: " + temperature + "°C, Weather: " + description);
+
+        //update weather icon
+        $("#weather-icon").attr("src", "https://www.weatherbit.io/static/img/icons/" + iconCode + ".png");
+        $("#weather-icon").attr("alt", description);
+      });
+    });
+  </script>
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -220,7 +238,7 @@
      </div>
  	<div>
         <div id="weather-box">
-          <img class="d-inline-flex p-2" id="weather-icon" src="https://www.weatherbit.io/static/img/icons/c03d.png" alt="Broken Clouds">
+          <img class="d-inline-flex p-2" id="weather-icon" src="" alt="Broken Clouds">
           <h4 class="text-info text-center mt-0">Cincinnati, Ohio</h4>
           <div class="mb-2" id="weather-info"></div>
 		
