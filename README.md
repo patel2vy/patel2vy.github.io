@@ -246,3 +246,49 @@ $(document).ready(function () {
     });
 });
 ```
+![Weather API](images/weatherapi.png)
+
+### Javascript Cookies
+
+JavaScript cookies were used to remember the client's visit and provide customized messages according to the client's recurring or first-time status. When a person visits for the first time, it says "Welcome to my homepage!" and when they return, it says "Welcome back! (Last visit time and date) was when you last visited.
+
+```JS
+    function setCookie(name, value, days) {
+      var expires = "";
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+      }
+      return null;
+    }
+
+    // Function to display the welcome message
+    function displayWelcomeMessage() {
+      var lastVisit = getCookie("lastVisit");
+      if (!lastVisit) {
+        // First-time visit
+        setCookie("lastVisit", new Date().toISOString(), 30); // Set cookie to expire in 30 days
+        alert("Welcome to my homepage!");
+      } else {
+        // Returning visit
+        var lastVisitDate = new Date(lastVisit);
+        alert("Welcome back! Your last visit was " + lastVisitDate.toLocaleString());
+      }
+    }
+
+    // Call the function when the page loads
+    window.onload = displayWelcomeMessage;
+```
+![Welcomeback revisit cookie](images/welcomeback.png)
