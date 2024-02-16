@@ -230,23 +230,10 @@
       drawNumbers(ctx, radius);
       drawTime(ctx, radius);
     }
-	function fetchJoke() {
-          $.get("https://v2.jokeapi.dev/joke/Any?type=single", function (result) {
-            console.log("From jokeAPI: " + JSON.stringify(result));
-            if (result && result.joke) {
-              $("#joke").text("Here's a joke for you: " + result.joke);
-            } else {
-              $("#joke").text("Could not retrieve a joke at the moment.");
-            }
-          });
-        }
-
-        // Function to fetch a new joke every minute
-
-
-        // Call the function to start fetching jokes
-        fetchJoke();
-        setInterval(fetchJoke, 60000);
+	$.get("https://v2.jokeapi.dev/joke/Programming?type=single",function(result){
+			$("#response").html("Programming joke of the day: " +result.joke);
+	    		$("#response").html("Programming joke of the day: " + encodeInput(result.joke));
+		});
 </script>
 		
 <script>
