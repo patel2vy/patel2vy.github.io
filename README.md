@@ -12,7 +12,7 @@
 
 ## Repository Information
 
-Respository's URL: [git@github.com:patel2vy/waph-patel2vy.git](git@github.com:patel2vy/waph-patel2vy.git)
+Respository's URL: [https://github.com/patel2vy/patel2vy.github.io](https://github.com/patel2vy/patel2vy.github.io)
 
 This is a public repository for Varun Reddy to store all code from the course. The organization of this repository is as follows.
 
@@ -20,8 +20,18 @@ This is a public repository for Varun Reddy to store all code from the course. T
 
 ## Overview and Requirements 
 
-For the Individual Project 1, I developed a professional profile website and deployed it on GitHub Pages. The website serves as a showcase of my resume, skills, and experiences, while also incorporating various technical functionalities like integrating joke API, digital clock, analog clock, show my email id, weather API and Flag counter. The main objectives of this project were to enhance my front-end web development skills and gain practical experience in deploying websites using GitHub Pages.
+For Individual Project 1, I created a professional profile webpage and hosted it on GitHub. The website showcases my resume, about, skills, and projects,as well as many technological functions such as integrating a joke API, digital clock, analogue clock, displaying my email address, XKCD comic, Hacker News articles, weather API, and flag counter. The primary goals of this project were to improve my front-end web programming abilities and get actual experience deploying websites with GitHub Sites.
 
 The link to access my website is: [https://patel2vy.github.io/index.html](https://patel2vy.github.io/index.html).
 
 The link to access Individual Project-1 is: [https://github.com/patel2vy/patel2vy.github.io](https://github.com/patel2vy/patel2vy.github.io).
+
+## General Requirements
+
+### Personal Website on Github.io
+
+I have open-sourced a new repository called `patel2vy.github.io`. I used GitHub Pages to create a personal website including my resume, contact details, education, certifications, projects, and skills.
+
+The link to access my website is: [https://patel2vy.github.io/index.html](https://patel2vy.github.io/index.html).
+
+![Resume Website](images/resumepage.png)
