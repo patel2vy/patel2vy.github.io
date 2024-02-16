@@ -47,3 +47,27 @@ This page URL is available via the personal website, as shown in the picture bel
 ![waph.html page link on mywebsite](images/htmlink.png)
 
 ![waph.html page](images/waphhtml.png)
+
+## Non-technical requirements
+
+I have created my own template taking references from we schools
+
+
+### Page Tracker
+
+In order to track website visits and interaction, I included Flag Counter as a page tracker. 
+
+Based on the two provided websites. `https://flagcounter.com/` is my choice. I used the website to produce a key, which I then included into my code. The integrated flag counter is accessible on the homepage of my website.
+
+Code for integrating Flag Counter:
+
+```html
+div style="text-align:left;">
+    <a href="https://info.flagcounter.com/szVl"><img
+        src="https://s11.flagcounter.com/count2/szVl/bg_FFFFFF/txt_000000/border_000000/columns_2/maxflags_10/viewers_0/labels_1/pageviews_1/flags_0/percent_0/"
+        alt="Flag Counter" border="0"></a>
+  </div>
+```
+
+![Flag Counter](images/Flagcounter.png)
+
