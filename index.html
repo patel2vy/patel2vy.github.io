@@ -64,7 +64,7 @@
     <script>
     $(document).ready(function () {
       // Fetch data from Weatherbit API
-      $.getJSON("https://api.weatherbit.io/v2.0/current?city=cincinnati&key=08d6dd69bae245f081687c17710408a2", function (data) {
+      $.getJSON("https://api.weatherbit.io/v2.0/current?city=cincinnati&key=9dfcc371ce9e44f38aa65500af54f3c0", function (data) {
         // Extract relevant weather information
         var temperature = data.data[0].temp;
         var description = data.data[0].weather.description;
@@ -79,43 +79,25 @@
       });
     });
   </script>
+  <style>
+    #response {
+      background-color: #ff9800;
+    }
+
+    #weather-box {
+      background-color: #04181c;
+      /* Set background color */
+      padding: 10px;
+      /* Add padding */
+      border-radius: 5px;
+      /* Add rounded corners */
+      margin-bottom: 20px;
+      /* Add margin to separate from other content */
+    }
+  </style>
       <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-
-  <script>
-    $(document).ready(function () {
-        var apiKey = '9dfcc371ce9e44f38aa65500af54f3c0'; // Replace 'YOUR_WEATHERBIT_API_KEY' with your actual Weatherbit API key
-        
-        // Make a GET request to Weatherbit API for current weather data
-        $.get("https://api.weatherbit.io/v2.0/current", {
-            key: apiKey,
-            city: 'Cincinnati' // Example city, you can change it to any city you want
-        })
-        .done(function (data) {
-            // Check if the request was successful and data is available
-            if (data && data.data && data.data.length > 0) {
-                var weatherData = data.data[0];
-                var temperature = weatherData.temp;
-                var description = weatherData.weather.description;
-                var iconCode = weatherData.weather.icon;
-                
-                // Construct the URL for the weather icon
-                var iconUrl = "https://www.weatherbit.io/static/img/icons/" + iconCode + ".png";
-                
-                // Display weather information on the webpage
-                $("#weather-icon").attr("src", iconUrl);
-                $("#weather-details").html("<p>Temperature: " + temperature + "°C</p>" +
-                                            "<p>Description: " + description + "</p>");
-            } else {
-                $("#weather-info").html("<p>Unable to fetch weather data.</p>");
-            }
-        })
-        .fail(function () {
-            $("#weather-info").html("<p>Error occurred while fetching weather data.</p>");
-        });
-    });
-</script>
   <script>
     // Function to set or retrieve the value of a cookie
     function setCookie(name, value, days) {
